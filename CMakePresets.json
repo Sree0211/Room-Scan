@@ -1,0 +1,72 @@
+{
+    "version": 10,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 31,
+        "patch": 0
+    },
+    "configurePresets":[
+        {
+            "$comment": "MacOS Setup - Debug",
+            "name": "macos-ninja-debug",
+            "displayName": "macOS Debug",
+            "description": "Build in macOs for debug mode",
+            "generator": "Ninja",
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+            "binaryDir": "${sourceDir}/build/macos/Debug",
+            "cacheVariables":{
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "macos-ninja-release",
+            "displayName": "macOS Release",
+            "generator": "Ninja",
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+            "binaryDir": "${sourceDir}/build/macos/Release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "linux-debug",
+            "displayName": "Linux / WSL Debug",
+            "generator": "Ninja",
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+            "binaryDir": "${sourceDir}/build/linux/Debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        },
+        {
+            "name": "linux-release",
+            "displayName": "Linux / WSL Release",
+            "generator": "Ninja",
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+            "binaryDir": "${sourceDir}/build/linux/Release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        }
+    ],
+    "buildPresets":[
+        {
+            "name":"build-macos-debug",
+            "configurePreset": "macos-ninja-debug"
+        },
+        {
+            "name":"build-macos-release",
+            "configurePreset": "macos-ninja-release"
+        },
+        {
+            "name":"build-linux-debug",
+            "configurePreset": "linux-debug"
+        },
+        {
+            "name":"build-linux-release",
+            "configurePreset": "linux-release"
+        }
+    ]
+}
