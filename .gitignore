@@ -65,4 +65,8 @@ vcpkg_installed/
 
 # test output & cache
 Testing/
+<<<<<<< HEAD
 .cache/
+=======
+.cache/
+>>>>>>> origin/main
