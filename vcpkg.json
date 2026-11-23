@@ -6,6 +6,8 @@
     "builtin-baseline": "19e7a138440f005fea23d92b19df87f8040e66c1",
     "dependencies": [
         "eigen3",
-        "opencv4"
+        "opencv4",
+        "ceres",
+        "gtest"
     ]
 }

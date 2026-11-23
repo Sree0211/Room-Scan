@@ -1,3 +1,1 @@
-*.bat batScript eol=crlf
-*.sh shellScript eol=lf
-data/*.png binary
+Sample datasets are stored here
